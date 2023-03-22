@@ -171,13 +171,26 @@ img {
 summary {
     font-size: 1.25rem;
     text-align: left;
-    margin-left: 5em;
+    margin-left: 25px;
+    padding: 10px 5px 5px 0;
+    padding-left: 10px;
     user-select: none;
+    border-bottom: 1.5px solid #666;
 }
 
 summary:hover{
     cursor: pointer;
     font-size: 1.5rem;
+    background-color: #EEF;
+}
+
+details[open] summary {
+    border-bottom: 0px;
+    font-size: 1.5rem;
+}
+
+details[open] summary:hover {
+    background-color: #FFFFFF;
 }
 
 details > *:not(summary) {
