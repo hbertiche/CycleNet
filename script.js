@@ -31,7 +31,6 @@ function copy_bibtex() {
 
 
 function make_site(paper){
-    console.log(paper);
     document.title = paper.title;
     get("title").textContent = paper.title;
     get("conference").textContent = paper.conference;
@@ -65,4 +64,4 @@ sliders = document.getElementsByClassName("slider-wrapper")
 for (var i = 0; i < sliders.length; i++) set_slider(sliders[i])
 
 // Read JSON
-fetch("./paper.json").then(response => response.json).then(json => make_site(json));
+fetch("./paper.json").then(response => response.json()).then(json => make_site(json));
