@@ -1,0 +1,48 @@
+{
+    "title": "Blowing in the Wind: CycleNet for Human Cinemagraphs from Still Images",
+    "conference": "CVPR 2023",
+    "authors": [
+        {
+            "name": "Hugo Bertiche",
+            "email": "mailto:hugo_bertiche@hotmail.com",
+            "affiliations": ["1", "2"]
+        },
+        {
+            "name": "Niloy J. Mitra",
+            "email": "http://www0.cs.ucl.ac.uk/staff/n.mitra/",
+            "affiliations": ["3", "4"]
+        },
+        {
+            "name": "Kuldeep Kulkarni",
+            "email": "https://kuldeepkulkarni.github.io/",
+            "affiliations": ["4"]
+        },
+        {
+            "name": "Chun-Hao Paul Huang",
+            "email": "https://paulchhuang.wixsite.com/chhuang",
+            "affiliations": ["4"]
+        },
+        {
+            "name": "Tuanfeng Y. Wang",
+            "email": "https://tuanfeng.github.io/",
+            "affiliations": ["4"]
+        },
+        {
+            "name": "Meysam Madadi",
+            "email": "mailto:mmadadi@cvc.uab.cat",
+            "affiliations": ["1", "2"]
+        },
+        {
+            "name": "Sergio Escalera",
+            "email": "https://sergioescalera.com/",
+            "affiliations": ["1", "2"]
+        },
+        {
+            "name": "Duygu Ceylan",
+            "email": "https://www.duygu-ceylan.com/",
+            "affiliations": ["4"]
+        }
+    ],
+    "affiliations": ["Universitat de Barcelona", "Computer Vision Center", "University College London", "Adobe Research"],
+    "abstract": "Cinemagraphs are short looping videos created by adding subtle motions to a static image. This kind of media is popular and engaging. However, automatic generation of cinemagraphs is an underexplored area and current solutions require tedious low-level manual authoring by artists. In this paper, we present an automatic method that allows generating human cinemagraphs from single RGB images. We investigate the problem in the context of dressed humans under the wind. At the core of our method is a novel cyclic neural network that produces looping cinemagraphs for the target loop duration. To circumvent the problem of collecting real data, we demonstrate that it is possible, by working in the image normal space, to learn garment motion dynamics on synthetic data and generalize to real data. We evaluate our method on both synthetic and real data and demonstrate that it is possible to create compelling and plausible cinemagraphs from single RGB images."
+}

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Project Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+
+<body>
+    <div id="body">
+        <h1 id="title"></h1>
+        <h3 id="conference"></h3>
+        <div id="author-list">
+        </div>
+        <div id="affiliation-list">
+        </div>
+        <div id="button-list">
+            <a href="https://arxiv.org/abs/2303.08639" id="arxiv">
+                <img src="assets/logos/arXiv.svg">
+                <span>arXiv</span>
+            </a>
+            <a id="github">
+                <img src="assets/logos/GitHub-Mark-32px.png">
+                <span>GitHub (TBD)</span>
+            </a>
+        </div>
+        <div id="content">
+            <img class="landscape" src="assets/imgs/motivation.png">
+            <div id="abstract-container">
+                <h1>Abstract</h1>
+                <p id="abstract"></p>
+            </div>
+            <div id="overview">
+                <h1>Human Cinemegraph Generation</h1>
+                <div id="problem">
+                    <img src="assets/imgs/steps/Input.png">
+                    <img src="assets/imgs/arrow.png">
+                    <video autoplay muted loop>
+                        <source src="assets/imgs/steps/RGB.mp4">
+                    </video>
+                </div>
+            </div>
+            <div id="method">
+                <h2>Methodology</h2>
+                <p>We propose solving this problem in <b>normal space</b>. By doing so, it is possible to tackle the
+                    problem <b>without real data</b>.</p>
+                <h3>Pipeline</h3>
+                <img class="landscape" src="assets/imgs/pipeline.png">
+                <h3>Problem Decomposition</h3>
+                <p>Here we detail how we <b>decompose</b> the problem to approach it through the <b>normal space</b>.
+                </p>
+                <details class="landscape">
+                    <summary>Stage 1: Normal estimation</summary>
+                    <section class="slider-wrapper">
+                        <button class="slide-arrow slide-arrow-prev">
+                            &#8249;
+                        </button>
+                        <button class="slide-arrow slide-arrow-next">
+                            &#8250;
+                        </button>
+
+                        <ul class="slides-container">
+                            <li class="slide"><img src="assets/imgs/normal0.jpg"></li>
+                            <li class="slide"><img src="assets/imgs/normal1.jpg"></li>
+                            <li class="slide"><img src="assets/imgs/normal2.jpg"></li>
+                            <li class="slide"><img src="assets/imgs/normal3.jpg"></li>
+                        </ul>
+                    </section>
+                </details>
+                <details class="landscape">
+                    <summary>Stage 2: Cyclic and Controllable Animation (Sec 3.1)</summary>
+                    <h3>Wind Cyclic UNet</h3>
+                    <img src="assets/imgs/architecture.png">
+                </details>
+                <details class="landscape">
+                    <summary>Stage 3: Normal Guided Synthesis (Sec. 3.2)</summary>
+                    <div id="full_steps">
+                        <div>
+                            <img src="assets/imgs/steps/Input.png">
+                            Input
+                        </div>
+                        <div>
+                            <img src="assets/imgs/steps/InputNormal.png">
+                            Normal map
+                        </div>
+                        <div>
+                            <video autoplay muted loop>
+                                <source src="assets/imgs/steps/Normals.mp4">
+                            </video>
+                            Animation
+                        </div>
+                        <div>
+                            <video autoplay muted loop>
+                                <source src="assets/imgs/steps/Shading.mp4">
+                            </video>
+                            Shading
+                        </div>
+                        <div>
+                            <img src="assets/imgs/steps/Albedo.png">
+                            Reflectance
+                        </div>
+                        <div>
+                            <video autoplay muted loop>
+                                <source src="assets/imgs/steps/RGB.mp4">
+                            </video>
+                            RGB
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div id="data">
+                <h2>Synthetic Data</h2>
+                <p>We train our Cyclic and Controllable UNet using <b>only synthetic data</b>.</p>
+                <section class="slider-wrapper two-videos">
+                    <button class="slide-arrow slide-arrow-prev">
+                        &#8249;
+                    </button>
+                    <button class="slide-arrow slide-arrow-next">
+                        &#8250;
+                    </button>
+
+                    <ul class="slides-container">
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/data/synthetic/02060/RGB.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/data/synthetic/02060/Normals.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/data/synthetic/02086/RGB.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/data/synthetic/02086/Normals.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/data/synthetic/02098/RGB.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/data/synthetic/02098/Normals.mp4">
+                            </video>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div id="results">
+                <h2>Comparison</h2>
+                <p>We compare results obtained with a state-of-the-art method and variations of our approach.</p>
+                <section class="slider-wrapper four-videos"><button
+                        class="slide-arrow slide-arrow-prev">&#8249;</button><button
+                        class="slide-arrow slide-arrow-next">&#8250;</button>
+                    <ul class="slides-container">
+                        <li class="slide">
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/kuldeep_0.mp4">
+                                </video>
+                                <div>
+                                    Controllable Animation [27]
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/RGB_0.mp4">
+                                </video>
+                                <div>
+                                    RGB
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/normals_0.mp4">
+                                </video>
+                                <div>
+                                    Normals
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/xnormals_0.mp4">
+                                </video>
+                                <div>
+                                    Estimated Normals
+                                </div>
+                            </div>
+                        </li>
+                        <li class="slide">
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/kuldeep_1.mp4">
+                                </video>
+                                <div>
+                                    Controllable Animation [27]
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/RGB_1.mp4">
+                                </video>
+                                <div>
+                                    RGB
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/normals_1.mp4">
+                                </video>
+                                <div>
+                                    Normals
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/xnormals_1.mp4">
+                                </video>
+                                <div>
+                                    Estimated Normals
+                                </div>
+                            </div>
+                        </li>
+                        <li class="slide">
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/kuldeep_2.mp4">
+                                </video>
+                                <div>
+                                    Controllable Animation [27]
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/RGB_2.mp4">
+                                </video>
+                                <div>
+                                    RGB
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/normals_2.mp4">
+                                </video>
+                                <div>
+                                    Normals
+                                </div>
+                            </div>
+                            <div class="video_label">
+                                <video autoplay muted loop>
+                                    <source src="assets/results/ablation/real/xnormals_2.mp4">
+                                </video>
+                                <div>
+                                    Estimated Normals
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div id="wind">
+                <h2>Wind Control</h2>
+                <p>We illustrate here the possibility of <b>controlling</b> the generated video with the <b>wind
+                        direction</b>.</p>
+                <section class="slider-wrapper"><button class="slide-arrow slide-arrow-prev">&#8249;</button><button
+                        class="slide-arrow slide-arrow-next">&#8250;</button>
+                    <ul class="slides-container">
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/0.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/1.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/2.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/3.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/4.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/5.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/6.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/7.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/8.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/wind/real/9.mp4">
+                            </video>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div id="qualitative">
+                <h2>Qualitative results</h2>
+                <section class="slider-wrapper"><button class="slide-arrow slide-arrow-prev">&#8249;</button><button
+                        class="slide-arrow slide-arrow-next">&#8250;</button>
+                    <ul class="slides-container">
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/1.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/2.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/3.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/4.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/5.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/6.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/7.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/8.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/full/9.mp4">
+                            </video>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div id="more">
+                <h3>More results</h3>
+                <section class="slider-wrapper three-videos"><button
+                        class="slide-arrow slide-arrow-prev">&#8249;</button><button
+                        class="slide-arrow slide-arrow-next">&#8250;</button>
+                    <ul class="slides-container">
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/8.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/27.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/26.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/15.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/13.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/2.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/31.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/20.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/1.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/24.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/23.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/10.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/19.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/9.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/28.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/33.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/16.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/30.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/12.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/3.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/17.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/14.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/5.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/18.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/25.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/29.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/6.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/4.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/32.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/21.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/0.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/22.mp4">
+                            </video>
+                            <video autoplay muted loop>
+                                <source src="assets/results/qualitative/more/7.mp4">
+                            </video>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div id="failures">
+                <h3>Failures</h3>
+                <section class="slider-wrapper"><button class="slide-arrow slide-arrow-prev">&#8249;</button><button
+                        class="slide-arrow slide-arrow-next">&#8250;</button>
+                    <ul class="slides-container">
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/failures/0.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/failures/1.mp4">
+                            </video>
+                        </li>
+                        <li class="slide">
+                            <video autoplay muted loop>
+                                <source src="assets/results/failures/2.mp4">
+                            </video>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div id="bibtex-container">
+                <h1>BibTeX</h1>
+                <div id="copy-button">
+                    <img src="assets/logos/copy-icon.png">
+                </div>
+                <pre id="bibtex">[TBD]</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script type="text/javascript" src="paper.json"></script> -->
+    <script type="text/javascript" src="script.js"></script>
+</body>
