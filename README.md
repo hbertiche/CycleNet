@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/hbertiche/hbertiche.github.io/main/imgs/publications/BlowingWind.png">
 
-<a href="https://arxiv.org/abs/2303.08639">arXiv</a>
+<a href="https://hbertiche.github.io/CycleNet">Project Page</a> | <a href="https://arxiv.org/abs/2303.08639">arXiv</a>
 
 ### Abstract
 >
