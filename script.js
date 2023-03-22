@@ -31,6 +31,7 @@ function copy_bibtex() {
 
 
 function make_site(paper){
+    console.log(paper);
     document.title = paper.title;
     get("title").textContent = paper.title;
     get("conference").textContent = paper.conference;
